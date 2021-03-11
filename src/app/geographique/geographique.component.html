@@ -1,48 +1,44 @@
 <head>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
-   <link rel="stylesheet" type="text/css" href="geographique.component.css"/>
+	<link rel="stylesheet" type="text/css" href="geographique.component.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" 
+  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  crossorigin="">
 </head>
-<body>
-    <div class="navbar">
-        <a href="#geographique">Géographique</a>
-        <a href="#catalogue">Catalogue</a>
-        <a href="#cluster">Cluster</a>
-    </div> 
+  
+  <nav>
+	  <a href="#">Cluster</a>
+	  <a href="#">Catalogue</a>
+	  <a href="#">Géographique</a>
+	  <div class="animation start-home"></div>
+  </nav>
+  
+  <body>
+    <h1>Title</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper fringilla vehicula. Nulla nec gravida neque. 
+      Nulla tempus augue sed pulvinar commodo. Nulla lectus nunc, pretium ac scelerisque nec, lacinia vel justo. 
+      Sed mattis velit justo, quis egestas purus posuere consectetur. Quisque sed felis venenatis enim dictum efficitur. 
+      Nunc tempus lobortis feugiat.  
+    </p>
+    <div id="map"></div>
 
-    <h1> Titre </h1>
-    <p> Description </p>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
 
-    <div id="mapid">
-        Here goes the map
-    </div>
-
-    <div id="filtersid">
-        <label class="container">One
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          
-          <label class="container">Two
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          
-          <label class="container">Three
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          
-          <label class="container">Four
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label> 
-    </div>
-    
-</body>
-
-
+    <script>
+      var map = L.map('map').setView([50.84673, 4.35247], 12);
+      L.tileLayer('https://tile.openstreetmap.be/osmbe/{z}/{x}/{y}.png', {
+        attribution:
+          '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' +
+          ', Tiles courtesy of <a href="https://geo6.be/">GEO-6</a>',
+        maxZoom: 18
+      }).addTo(map);
+      var marker = L.marker([50.84673, 4.35247]).addTo(map);
+      var popup = marker.bindPopup('<b>Hello world!</b><br />I am a popup.');
+    </script>
+  </body>
+  
+  <div id="footer">
+	  By <span>Cathia, Luma, Luz, Santiago et Torben</span>
+  </div>
